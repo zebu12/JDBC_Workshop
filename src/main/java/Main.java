@@ -18,26 +18,42 @@ public class Main {
 
         CityDao matata = new CityDaoJDBC();
 
-//        City city = matata.findById(2);
-//        System.out.println(city);
+        // findById
 
-//        List<City> cities = matata.findByCode("USA");
-//        cities.forEach(city1 -> System.out.println(city1));
+        City city = matata.findById(2);
+        System.out.println(city);
 
-//        List<City> cities = matata.findByName("Jari");
-//        cities.forEach(System.out::println);
+        // findByCode
 
-//        List<City> cities1 = matata.findAll();
-//        cities1.forEach(city1 -> System.out.println(city1));
+        List<City> cities = matata.findByCode("USA");
+        cities.forEach(city1 -> System.out.println(city1));
 
-//        City brocoli = new City("Jari","USA","Snuss",2000000);
-////        matata.add(brocoli);
-////        System.out.println("added brocoli");
-//
-//        brocoli.setDistrict("Bonjour");
-//        matata.update(brocoli);
-//        System.out.println("update brocoli"+ brocoli);
+        // findByName
 
+        List<City> cities = matata.findByName("Jari");
+        cities.forEach(System.out::println);
+
+        // findAll
+
+        List<City> cities1 = matata.findAll();
+        cities1.forEach(city1 -> System.out.println(city1));
+
+        // addCity
+
+        City brocoli = new City("Jari", "USA", "Snuss", 2000000);
+        matata.add(brocoli);
+        System.out.println("added brocoli");
+
+        brocoli.setDistrict("Bonjour");
+
+        // update
+        matata.update(brocoli);
+        System.out.println("update brocoli" + brocoli);
+
+        // delete
+
+        matata.delete(brocoli);
+        System.out.println("deleted brocoli");
 
 
 

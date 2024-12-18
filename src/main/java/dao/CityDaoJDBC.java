@@ -173,6 +173,17 @@ public class CityDaoJDBC implements CityDao {
 
     @Override
     public int delete(City city) {
+        String sql = "DELETE FROM city WHERE ID = ?";
+
+        try(
+                Connection connection = getConnection();
+                PreparedStatement statement = connection.prepareStatement(sql);
+                ){
+            statement.setInt(1,city.getId());
+            return statement.executeUpdate();
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
 
         return 0;
     }
